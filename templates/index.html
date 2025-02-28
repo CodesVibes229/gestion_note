@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Liste des Notes{% endblock %}
+
+{% block content %}
+    <h1>Mes Notes</h1>
+    <ul class="mt-4">
+        {% for note in notes %}
+        <li class="border-b py-2 flex justify-between">
+            <span>{{ note.title }}</span> <span>{{ note.content }}</span>
+            <a href="{{ url_for('main.delete_note', id=note.id) }}" class="text-red-500">Supprimer</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

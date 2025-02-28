@@ -1,0 +1,32 @@
+from app import app, db
+from app.models import Note
+from flask import render_template, request, redirect, url_for
+from app.forms import NoteForm
+
+@app.route('/')
+def index():
+    notes = Note.query.all()
+    return render_template('index.html', notes=notes)
+
+@app.route('/add', methods=['GET', 'POST'])
+def add_note():
+    form = NoteForm()
+    if form.validate_on_submit():
+        note = Note(title=form.title.data, content=form.content.data)
+        db.session.add(note)
+        db.session.commit()
+        return redirect(url_for('index'))
+    return render_template('add_note.html', form=form)
+
+@app.route('/edit/<int:id>', methods=['GET', 'POST'])
+def edit_note(id):
+    note = Note.query.get_or_404(id)
+    form = NoteForm()
+    if form.validate_on_submit():
+        note.title = form.title.data
+        note.content = form.content.data
+        db.session.commit()
+        return redirect(url_for('index'))
+    form.title.data = note.title
+    form.content.data = note.content
+    return render_template('add_note.html', form=form)

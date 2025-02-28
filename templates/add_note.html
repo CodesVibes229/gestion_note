@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Ajouter une Note{% endblock %}
+
+{% block content %}
+    <form method="POST">
+        <input type="text" name="title" placeholder="Titre" class="w-full p-2 border rounded mb-2" required>
+        <textarea name="content" placeholder="Contenu" class="w-full p-2 border rounded mb-2" required></textarea>
+        <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Enregistrer</button>
+    </form>
+{% endblock %}
