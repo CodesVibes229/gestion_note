@@ -8,7 +8,7 @@ from .forms import LoginForm, RegisterForm
 
 main = Blueprint('main', __name__)
 
-@auth.route('/login', methods=['GET', 'POST'])
+"""@auth.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -35,14 +35,16 @@ def register():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('auth.login'))
+    return redirect(url_for('auth.login'))"""
 
 @main.route('/')
+@login_required
 def index():
     notes = Note.query.all()
     return render_template('index.html', notes=notes)
 
 @main.route('/add', methods=['GET', 'POST'])
+@login_required
 def add_note():
     form = NoteForm()
     if form.validate_on_submit():
