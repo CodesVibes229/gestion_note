@@ -1,0 +1,23 @@
+# Dossiers Python à exclure
+__pycache__/
+*.pyc
+*.pyo
+
+# Dossier d'environnement virtuel (si tu en utilises un)
+venv/
+.env
+
+# Fichiers de logs
+*.log
+
+# Dossier Git
+.git
+.gitignore
+
+# Fichiers de l'IDE (VS Code, PyCharm...)
+.vscode/
+.idea/
+*.swp
+
+# Dossiers de dépendances si tu utilises Node.js pour le frontend
+node_modules/
