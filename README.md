@@ -4,6 +4,7 @@
 Cette application web permet de créer, afficher et supprimer des notes. Elle utilise **Flask** pour le backend et **Tailwind CSS** pour le frontend.
 
 ## Fonctionnalités
+- 🔐 Ajouter une authentification des utilisateurs
 - 📌 Ajouter des notes
 - 📝 Modifier des notes (à ajouter)
 - 🗑️ Supprimer des notes
@@ -36,7 +37,6 @@ python run.py
 L'application sera accessible sur `http://127.0.0.1:5000/`
 
 ## Améliorations possibles
-- 🔐 Ajouter une authentification des utilisateurs
 - 📌 Permettre l'édition des notes
 - ☁️ Héberger l’application sur Render/Vercel
 
