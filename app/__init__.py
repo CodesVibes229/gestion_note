@@ -6,6 +6,7 @@ from flask_login import LoginManager
 
 login_manager = LoginManager()
 
+#Instance de SQALchemy
 db = SQLAlchemy()
 
 def create_app():
@@ -14,15 +15,14 @@ def create_app():
         template_folder=os.path.abspath("templates"),
         static_folder=os.path.abspath("static")
     )
+    db.init_app(app)
     app.config.from_object(Config)
     login_manager.init_app(app)
-    db.init_app(app)
 
     from .models import User
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
-
     login_manager.login_view = "auth.login"
     #Importation et enregistrement du Blueprint
     from .routes import main
