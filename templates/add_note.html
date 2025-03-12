@@ -8,4 +8,11 @@
         <textarea name="content" placeholder="Contenu" class="w-full p-2 border rounded mb-2" required></textarea>
         <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Enregistrer</button>
     </form>
+
+    <!-- Formulaire pour rediriger vers la page des notes -->
+    <form method="get" action="{{ url_for('auth.view_notes') }}" class="mt-4">
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">
+            Voir les Notes
+        </button>
+    </form>
 {% endblock %}
